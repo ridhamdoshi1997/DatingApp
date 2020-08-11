@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DatingApp.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -32,6 +34,7 @@ namespace DatingApp.API.Controllers
             _context = context;
 
         }
+         
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
@@ -39,6 +42,7 @@ namespace DatingApp.API.Controllers
            return Ok(values);
         }
 
+        
         [HttpGet("{id}")]
         public IActionResult GetValue(int id)
         {
