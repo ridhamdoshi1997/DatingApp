@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms';
 import {AuthService} from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import {MemberEditComponent} from './members/member-edit/member-edit.component';
 import { ErrorInterceptorProvider} from './_services/error.interceptor';
 import {AlertifyService} from './_services/alertify.service';
 import { ListsComponent } from './lists/lists.component';
@@ -26,6 +27,7 @@ import {MemberDetailComponent} from './members/member-detail/member-detail.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MemberDetailResolver} from './_resolvers/member-detail.resolver';
 import {MemberListResolver} from './_resolvers/member-list.resolver';
+import {MemberEditResolver} from './_resolvers/member-edit.resolver';
 import { NgxGalleryModule } from 'ngx-gallery-9';
 
 export function tokenGetter(){
@@ -42,7 +44,8 @@ export function tokenGetter(){
       MemberListComponent,
       MessagesComponent,
       MemberCardComponent,
-      MemberDetailComponent
+      MemberDetailComponent,
+      MemberEditComponent
    ],
    imports: [
       BrowserModule,
@@ -70,7 +73,8 @@ export function tokenGetter(){
       AuthGuard,
       UserService,
       MemberDetailResolver,
-      MemberListResolver
+      MemberListResolver,
+      MemberEditResolver
    ],
    bootstrap: [AppComponent]
 })
