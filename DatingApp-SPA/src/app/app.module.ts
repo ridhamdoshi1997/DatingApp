@@ -19,6 +19,7 @@ import {AlertifyService} from './_services/alertify.service';
 import { ListsComponent } from './lists/lists.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { MessagesComponent } from './messages/messages.component';
+import {PhotoEditorComponent} from './members/photo-editor/photo-editor.component';
 import {appRoutes} from './routes';
 import {AuthGuard} from './_guards/auth.guard';
 import {UserService} from './_services/user.service';
@@ -29,6 +30,7 @@ import {MemberDetailResolver} from './_resolvers/member-detail.resolver';
 import {MemberListResolver} from './_resolvers/member-list.resolver';
 import {MemberEditResolver} from './_resolvers/member-edit.resolver';
 import { NgxGalleryModule } from 'ngx-gallery-9';
+import { FileUploadModule } from 'ng2-file-upload';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
@@ -45,7 +47,8 @@ export function tokenGetter(){
       MessagesComponent,
       MemberCardComponent,
       MemberDetailComponent,
-      MemberEditComponent
+      MemberEditComponent,
+      PhotoEditorComponent
    ],
    imports: [
       BrowserModule,
@@ -53,6 +56,7 @@ export function tokenGetter(){
       FormsModule,
       BrowserAnimationsModule,
       NgxGalleryModule,
+      FileUploadModule,
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       JwtModule.forRoot({
