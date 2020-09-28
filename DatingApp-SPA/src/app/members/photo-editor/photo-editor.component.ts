@@ -20,11 +20,13 @@ export class PhotoEditorComponent implements OnInit {
   baseUrl = environment.apiUrl;
   mySubscription: any;
   show: boolean = false;
+  require: boolean = false;
   currentMain: Photo;
-
+  
   constructor(private authService: AuthService, private userService: UserService, private alertify: AlertifyService){  }
   ngOnInit() {
     this.initializeUploader();
+   
   }
 
  fileOverBase(e: any): void {
@@ -57,6 +59,13 @@ export class PhotoEditorComponent implements OnInit {
           isMain: res.isMain
         };
         this.photos.push(photo);
+      
+        if(photo.isMain)
+        {
+          this.authService.changeMemberPhoto(photo.url);
+          this.authService.currentUser.photoUrl = photo.url;
+          localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
+        }
         this.initializeUploader();
      }
    };

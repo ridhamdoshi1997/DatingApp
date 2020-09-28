@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { JwtModule } from '@auth0/angular-jwt';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { from } from 'rxjs'; 
 import { NavComponent } from './nav/nav.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
@@ -54,10 +54,12 @@ export function tokenGetter(){
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      ReactiveFormsModule,
       BrowserAnimationsModule,
       NgxGalleryModule,
       FileUploadModule,
       BsDropdownModule.forRoot(),
+      BsDatepickerModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       JwtModule.forRoot({
          config:{
